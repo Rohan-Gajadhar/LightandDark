@@ -1,17 +1,20 @@
-White = (255, 255, 255)
-Black = (0, 0, 0)
-DarkGrey = (40, 40, 40)
-LightGrey = (100, 100, 100)
-Green = (0, 255, 0)
-Red = (255, 0, 0)
-Yellow = (255, 255, 0)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+DARKGREY = (40, 40, 40)
+LIGHTGREY = (100, 100, 100)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+YELLOW = (255, 255, 0)
 
-Width = 1024
-Height = 768
+# game settings
+WIDTH = 1024   # 16 * 64 or 32 * 32 or 64 * 16
+HEIGHT = 768  # 16 * 48 or 32 * 24 or 64 * 12
 FPS = 60
-Title = "Light & Dark"
-BG = DarkGrey
+TITLE = "Tilemap Demo"
+BGCOLOR = DARKGREY
 
-TileSize = 32
-GridWidth = Width / TileSize
-GridHeight = Height / TileSize
+TILESIZE = 32
+GRIDWIDTH = WIDTH / TILESIZE
+GRIDHEIGHT = HEIGHT / TILESIZE
+
+PLAYER_SPEED = 200
