@@ -7,7 +7,7 @@ class Map:
         self.data = []
         with open(filename, 'rt') as f:
             for line in f:
-                self.data.append(line)
+                self.data.append(line.strip())
 
         self.tilewidth = len(self.data[0])
         self.tileheight = len(self.data)
@@ -16,6 +16,7 @@ class Map:
 
 
 class Camera:
+    # sets a camera view
     def __init__(self, width, height):
         self.camera = pg.Rect(0, 0, width, height)
         self.width = width
@@ -24,7 +25,14 @@ class Camera:
     def apply(self, entity):
         return entity.rect.move(self.camera.topleft)
 
+    # calculates player offset
     def update(self, target):
         x = -target.rect.x + int(WIDTH / 2)
         y = -target.rect.y + int(HEIGHT / 2)
+
+        # limit scrolling
+        x = min(0, x)  # left
+        y = min(0, y)  # top
+        x = max(-(self.width - WIDTH), x)  # right
+        y = max(-(self.height - HEIGHT), y)  # bottom
         self.camera = pg.Rect(x, y, self.width, self.height)
