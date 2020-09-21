@@ -8,22 +8,18 @@ LIGHTGREY = (100, 100, 100)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
-BROWN = (106, 55, 5)
 
 # game settings
 WIDTH = 1024
 HEIGHT = 768
 FPS = 60
 TITLE = "Light&Dark"
-BGCOLOR = BROWN
+BGCOLOR = DARKGREY
 
 # tile settings
-TILESIZE = 64
+TILESIZE = 32
 GRIDWIDTH = WIDTH / TILESIZE
 GRIDHEIGHT = HEIGHT / TILESIZE
-
-WALL_IMG = 'tile_358.png'
-FLOOR_IMG = 'tile_42.png'
 
 # player settings
 PLAYER_SPEED = 200

@@ -20,10 +20,8 @@ class Game:
     def load_data(self):
         game_folder = path.dirname(__file__)
         img_folder = path.join(game_folder, 'img_folder')
-        self.map = Map(path.join(game_folder, 'map3.txt'))
+        self.map = Map(path.join(game_folder, 'map2.txt'))
         self.player_img = pg.image.load(path.join(img_folder, PLAYER_IMG)).convert_alpha()
-        self.wall_img = pg.image.load(path.join(img_folder, WALL_IMG)).convert_alpha()
-        self.floor_img = pg.image.load(path.join(img_folder, FLOOR_IMG)).convert_alpha()
 
     # initialize variables
     def new(self):
@@ -63,11 +61,11 @@ class Game:
 
     # draws
     def draw(self):
-        pg.display.set_caption("{:.2f}".format(self.clock.get_fps()))
         self.screen.fill(BGCOLOR)
         self.draw_grid()
         for sprite in self.all_sprites:
             self.screen.blit(sprite.image, self.camera.apply(sprite))
+        pg.draw.rect(self.screen, WHITE, self.camera.apply(self.player), 2)
         pg.display.flip()
 
     # catches events
@@ -85,3 +83,4 @@ g = Game()
 while True:
     g.new()
     g.run()
+# testing
