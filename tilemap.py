@@ -2,11 +2,13 @@ import pygame as pg
 from settings import *
 
 
+# smaller hit box for rotation
 def collide_hit_rect(one, two):
     return one.hit_rect.colliderect(two.rect)
 
 
 class Map:
+    # loading and adjusting map layout
     def __init__(self, filename):
         self.data = []
         with open(filename, 'rt') as f:
@@ -34,7 +36,7 @@ class Camera:
         x = -target.rect.centerx + int(WIDTH / 2)
         y = -target.rect.centery + int(HEIGHT / 2)
 
-        # limit scrolling
+        # limits scrolling
         x = min(0, x)  # left
         y = min(0, y)  # top
         x = max(-(self.width - WIDTH), x)  # right
