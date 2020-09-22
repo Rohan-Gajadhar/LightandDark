@@ -1,6 +1,6 @@
 import pygame as pg
 
-# defines colours
+# Colours
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 DARKGREY = (40, 40, 40)
@@ -10,27 +10,31 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 BROWN = (106, 55, 5)
 
-# game settings
+# Game settings
 WIDTH = 1024
 HEIGHT = 768
 FPS = 60
-TITLE = "Light&Dark"
+TITLE = "Tilemap Demo"
 BGCOLOR = BROWN
 
-# tile settings
+# Tile Settings
 TILESIZE = 64
 GRIDWIDTH = WIDTH / TILESIZE
 GRIDHEIGHT = HEIGHT / TILESIZE
 
-WALL_IMG = 'tile_358.png'
+# Wall Settings
+WALL_IMG = 'tileGreen_39.png'
 
-# player settings
-PLAYER_SPEED = 200
+# Player settings
+PLAYER_SPEED = 300
 PLAYER_ROT_SPEED = 250
 PLAYER_IMG = 'soldier1_stand.png'
 PLAYER_HIT_RECT = pg.Rect(0, 0, 35, 35)
 
+# Gun settings
+# BULLET_IMG = bullet.png
+
 # Mob settings
-MOB_IMG = 'zombie1_machine.png'
+MOB_IMG = 'zombie1_hold.png'
 MOB_SPEED = 150
 MOB_HIT_RECT = pg.Rect(0, 0, 30, 30)

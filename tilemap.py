@@ -2,6 +2,7 @@ import pygame as pg
 from settings import *
 
 
+# Combines/adjusts the two seperate hitboxes
 def collide_hit_rect(one, two):
     return one.hit_rect.colliderect(two.rect)
 
@@ -9,18 +10,19 @@ def collide_hit_rect(one, two):
 class Map:
     def __init__(self, filename):
         self.data = []
+        # Removes out of bounds blank space from view
         with open(filename, 'rt') as f:
             for line in f:
                 self.data.append(line.strip())
-
+        # Formatting maps with tilesize
         self.tilewidth = len(self.data[0])
         self.tileheight = len(self.data)
         self.width = self.tilewidth * TILESIZE
         self.height = self.tileheight * TILESIZE
 
 
+# Player tracking/scrolling camera
 class Camera:
-    # sets a camera view
     def __init__(self, width, height):
         self.camera = pg.Rect(0, 0, width, height)
         self.width = width
@@ -29,12 +31,11 @@ class Camera:
     def apply(self, entity):
         return entity.rect.move(self.camera.topleft)
 
-    # calculates player offset
     def update(self, target):
         x = -target.rect.centerx + int(WIDTH / 2)
         y = -target.rect.centery + int(HEIGHT / 2)
 
-        # limit scrolling
+        # Limit scrolling to map size
         x = min(0, x)  # left
         y = min(0, y)  # top
         x = max(-(self.width - WIDTH), x)  # right
