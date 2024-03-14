@@ -1,2 +1,4 @@
-Requires pygame:
-pip install pygame
+*Prerequesites*
+- pygame
+
+`pip install pygame`
